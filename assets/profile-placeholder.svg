@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="프로필 사진 플레이스홀더">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F5EEE5" />
+      <stop offset="100%" stop-color="#EDE2D4" />
+    </linearGradient>
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8B0029" stroke-opacity="0.06" stroke-width="1" />
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGrad)" />
+  <rect width="800" height="600" fill="url(#gridPattern)" />
+  <rect x="28" y="28" width="744" height="544" rx="18" fill="none" stroke="#8B0029" stroke-opacity="0.18" stroke-width="1.5" stroke-dasharray="6 6" />
+  <g transform="translate(400, 255)">
+    <circle cx="0" cy="0" r="96" fill="#FFFDF9" stroke="#8B0029" stroke-opacity="0.22" stroke-width="1.5" />
+    <circle cx="0" cy="-22" r="30" fill="#8B0029" fill-opacity="0.16" stroke="#8B0029" stroke-opacity="0.55" stroke-width="2" />
+    <path d="M-54,56 C-54,24 -30,10 0,10 C30,10 54,24 54,56" fill="#8B0029" fill-opacity="0.14" stroke="#8B0029" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <text x="400" y="405" text-anchor="middle" font-family="'Noto Serif KR', serif" font-size="22" font-weight="600" fill="#201B1D">심성민 · Sungmin Sim</text>
+  <text x="400" y="440" text-anchor="middle" font-family="'Noto Sans KR', sans-serif" font-size="15" fill="#8B0029" letter-spacing="0.04em">프로필 사진 준비 중 (4:3 Placeholder)</text>
+  <text x="400" y="468" text-anchor="middle" font-family="'Noto Sans KR', sans-serif" font-size="13" fill="#5C5255">고려대학교 노어노문학과 · 디지털인문학 연구 포트폴리오</text>
+</svg>

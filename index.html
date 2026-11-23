@@ -8,7 +8,10 @@
       name="description"
       content="문화와 데이터를 연결하는 디지털 인문학도 심성민의 포트폴리오 및 2025–2026 고려대학교 석탑대동제 지식그래프 분석 프로젝트."
     />
-    <meta property="og:title" content="심성민 | 문화와 데이터를 연결하는 디지털 인문학도" />
+    <meta
+      property="og:title"
+      content="심성민 | 문화와 데이터를 연결하는 디지털 인문학도"
+    />
     <meta
       property="og:description"
       content="문화와 데이터를 연결하는 디지털 인문학도 심성민의 포트폴리오 및 2025–2026 고려대학교 석탑대동제 지식그래프 분석 프로젝트."
@@ -21,10 +24,952 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./vendor/d3.min.js"></script>
+    <script defer src="./app.js"></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="./src/main.tsx"></script>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#home" class="brand-link" aria-label="심성민 홈으로 이동">
+          <span class="brand-emblem" aria-hidden="true">
+            <svg viewBox="0 0 36 36" fill="none">
+              <path
+                d="M7 5.5H29V18.5C29 25.4 23.8 29.8 18 31.8C12.2 29.8 7 25.4 7 18.5V5.5Z"
+                fill="#8B0029"
+              />
+              <path
+                d="M9.5 8H26.5V18.2C26.5 23.6 22.5 27.1 18 28.9C13.5 27.1 9.5 23.6 9.5 18.2V8Z"
+                stroke="#FFFDF9"
+                stroke-opacity="0.45"
+                stroke-width="1"
+              />
+              <path
+                d="M18 11.2L20.8 15.2L23.2 13.8L22 19.6H14L12.8 13.8L15.2 15.2L18 11.2Z"
+                fill="#FFFDF9"
+              />
+              <path
+                d="M13.5 22.2H22.5"
+                stroke="#FFFDF9"
+                stroke-width="1.4"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-ko">심성민</span>
+            <span class="brand-en">Sungmin Sim</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="주 내비게이션">
+          <a href="#about" class="nav-link" data-nav="about">자기소개</a>
+          <a href="#project" class="nav-link" data-nav="project">프로젝트</a>
+          <a href="#contact" class="nav-link" data-nav="contact">연락</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. 홈 -->
+      <section id="home" class="hero-section section-anchor">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <p class="eyebrow">
+                고려대학교 노어노문학과 · 디지털인문학 포트폴리오
+              </p>
+              <h1 class="hero-title">
+                문화와 데이터를 연결하는 디지털 인문학도,
+                <span class="text-crimson">심성민</span>
+              </h1>
+              <p class="hero-lead">
+                인문학적 질문에서 출발해 문화 현장의 흩어진 기록을 구조화하고,
+                지식그래프와 웹 시각화를 통해 맥락과 변화의 흐름을 읽어냅니다.
+                노어노문학 전공 기반 위에 인문학 콘텐츠와 문화 데이터 분석을
+                탐구하고 있습니다.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#project" class="btn btn-primary">
+                  프로젝트 보기
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 7l10 10M17 7v10H7" />
+                  </svg>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#8B0029"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M22 7l-10 7L2 7" />
+                  </svg>
+                  연락하기
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <figure class="photo-frame">
+                <div class="photo-aspect">
+                  <img
+                    src="./assets/profile-placeholder.svg"
+                    alt="심성민 프로필 사진 플레이스홀더"
+                  />
+                </div>
+                <figcaption class="photo-caption">
+                  <span>심성민 (Sungmin Sim)</span>
+                  <span class="photo-caption-tag">4:3 프로필 이미지 준비 중</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="featured-summary">
+            <div class="featured-summary-top">
+              <div>
+                <div class="featured-meta">
+                  <strong class="text-crimson">대표 연구 프로젝트</strong>
+                  <span aria-hidden="true">·</span>
+                  <span>고려대학교 「디지털인문학응용」</span>
+                  <span aria-hidden="true">·</span>
+                  <span class="tabular-nums">2026년 9월–12월</span>
+                  <span aria-hidden="true">·</span>
+                  <strong style="color: var(--ink)">진행 중</strong>
+                </div>
+                <h2 class="featured-title">
+                  2025–2026 고려대학교 석탑대동제 지식그래프 분석
+                </h2>
+                <p class="featured-desc">
+                  연도별 축제 책자와 공개 자료에 흩어져 있던 무대 공연 및 부스
+                  운영 기록을 Neo4j 지식그래프로 구축해 참여 주체의 구성과 2개년
+                  변화를 탐색합니다.
+                </p>
+              </div>
+
+              <div class="stats-strip">
+                <div class="stat-cell">
+                  <div class="stat-value tabular-nums">
+                    <span id="hero-node-count">150</span
+                    ><span class="stat-unit">개</span>
+                  </div>
+                  <div class="stat-label">노드</div>
+                </div>
+                <div class="stat-cell">
+                  <div class="stat-value tabular-nums">
+                    <span id="hero-edge-count">242</span
+                    ><span class="stat-unit">개</span>
+                  </div>
+                  <div class="stat-label">관계</div>
+                </div>
+                <div class="stat-cell">
+                  <div class="stat-value tabular-nums">
+                    <span id="hero-class-count">5</span
+                    ><span class="stat-unit">종</span>
+                  </div>
+                  <div class="stat-label">노드 클래스</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="featured-links">
+              <a href="#knowledge-graph" class="text-link-primary">
+                인터랙티브 지식그래프 바로 탐색하기 ↘
+              </a>
+              <a href="#project" class="text-link-muted">
+                연구 설계 및 진행 과정 보기
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. 자기소개 -->
+      <section id="about" class="about-section section-anchor">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">About</p>
+            <h2 class="section-title">자기소개</h2>
+            <p class="section-lead">
+              텍스트와 문화 현상을 데이터 구조로 옮기고, 시각화 및 온톨로지
+              관점에서 인문학적 해석의 폭을 넓히는 작업을 지향합니다.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div>
+              <figure class="photo-frame photo-frame--ivory">
+                <div class="photo-aspect">
+                  <img
+                    src="./assets/profile-placeholder.svg"
+                    alt="심성민 자기소개 4:3 프로필 플레이스홀더"
+                  />
+                </div>
+                <figcaption class="photo-caption">
+                  <span>고려대학교 노어노문학과 23학번</span>
+                  <span class="photo-caption-tag">프로필 사진 준비 중</span>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="card">
+              <h3 class="card-heading">연구자 기본 정보</h3>
+              <dl class="profile-dl">
+                <div class="profile-row">
+                  <dt>이름</dt>
+                  <dd>
+                    심성민
+                    <span style="color: var(--ink-muted)">· Sungmin Sim</span>
+                  </dd>
+                </div>
+                <div class="profile-row">
+                  <dt>학과</dt>
+                  <dd>고려대학교 노어노문학과</dd>
+                </div>
+                <div class="profile-row">
+                  <dt>입학연도</dt>
+                  <dd class="tabular-nums">2023년</dd>
+                </div>
+                <div class="profile-row">
+                  <dt>관심 분야</dt>
+                  <dd>인문학 콘텐츠 · 디지털인문학 · 문화 데이터</dd>
+                </div>
+                <div class="profile-row">
+                  <dt>이메일</dt>
+                  <dd>
+                    <a
+                      href="mailto:sseongmin30@gmail.com"
+                      class="inline-link"
+                    >
+                      sseongmin30@gmail.com
+                    </a>
+                  </dd>
+                </div>
+                <div class="profile-row">
+                  <dt>자기소개 위키</dt>
+                  <dd>
+                    <a
+                      href="https://dh.aks.ac.kr/~kimseoyun/wiki/index.php/%EC%82%AC%EC%9A%A9%EC%9E%90:%EC%8B%AC%EC%84%B1%EB%AF%BC"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-link"
+                    >
+                      디지털인문학 개인 위키 페이지 열기 ↗
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. 프로젝트 (연속된 상세 서사) -->
+      <section id="project" class="project-section section-anchor">
+        <div class="container project-flow">
+          <!-- 4-1. 프로젝트 소개 -->
+          <div>
+            <p class="eyebrow">Featured Research Project</p>
+            <div class="project-badges">
+              <span class="meta-tag tabular-nums">2026년 9월–12월</span>
+              <span class="meta-tag">4인 팀 프로젝트</span>
+              <span class="meta-tag">고려대학교 「디지털인문학응용」</span>
+              <span class="meta-tag meta-tag--status">진행 중</span>
+            </div>
+            <h2 class="project-title">
+              2025–2026 고려대학교 석탑대동제 지식그래프 분석
+            </h2>
+            <p class="project-intro-text">
+              2025년(KUdyssey)과 2026년(Kulimax) 고려대학교 석탑대동제의 무대
+              공연과 부스 운영 참여 데이터를 Neo4j 지식그래프로 구조화하고,
+              연도별·일자별 참여 구성을 탐색할 수 있도록 구축한 디지털인문학
+              연구 프로젝트입니다.
+            </p>
+          </div>
+
+          <!-- 4-2. 연구 배경 및 문제의식 -->
+          <div class="project-block">
+            <div class="split-block">
+              <div>
+                <p class="block-kicker">01 / RESEARCH BACKGROUND</p>
+                <h3 class="block-title">연구 배경 및 문제의식</h3>
+              </div>
+              <div class="prose-stack">
+                <p>
+                  대학 축제는 무대 공연과 학생 자치 활동, 외부 기업 및 기관의
+                  홍보 프로그램이 한 시공간에 교차하며 결합되는 복합 문화
+                  행사입니다. 그러나 축제를 둘러싼 공식 기록은 해마다 제작되는
+                  책자와 SNS 공지, 개별 홍보 게시물 등에 흩어져 있어 연도별 전체
+                  구성을 입체적으로 비교하기 어렵습니다.
+                </p>
+                <p style="color: var(--ink-muted)">
+                  본 연구는 이처럼 파편화된 축제 기록을
+                  <strong style="color: var(--ink)"
+                    >축제–일자–참여 주체</strong
+                  >의 관계망으로 구조화함으로써, 단순한 행사 일정 나열을 넘어
+                  참여 주체의 분포와 연도별 성격 변화가 한눈에 드러나는 데이터
+                  기반 탐색 환경을 구축하고자 합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4-3. 핵심 질문 -->
+          <div class="project-block">
+            <p class="block-kicker">02 / RESEARCH QUESTIONS</p>
+            <h3 class="block-title">핵심 질문</h3>
+            <div class="questions-grid">
+              <article class="question-card">
+                <div class="question-num tabular-nums">Q01</div>
+                <p class="question-text">
+                  최근 2개년 석탑대동제의 무대 공연에는 어떤 종류의 연예인들이
+                  섭외되었는가?
+                </p>
+              </article>
+              <article class="question-card">
+                <div class="question-num tabular-nums">Q02</div>
+                <p class="question-text">
+                  최근 2개년 석탑대동제의 무대 공연에는 어떤 종류의 학생단체들이
+                  참여했는가?
+                </p>
+              </article>
+              <article class="question-card">
+                <div class="question-num tabular-nums">Q03</div>
+                <p class="question-text">
+                  최근 2개년 석탑대동제의 부스에는 어떤 조직이 참여하였으며,
+                  산업군 구성은 어떻게 달라졌는가?
+                </p>
+              </article>
+              <article class="question-card">
+                <div class="question-num tabular-nums">Q04</div>
+                <p class="question-text">
+                  최근 2개년 석탑대동제의 부스에는 어떤 학생참여주체가
+                  참여하였는가?
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <!-- 4-4. 데이터 모델 설계 -->
+          <div class="project-block">
+            <p class="block-kicker">03 / DATA MODEL</p>
+            <h3 class="block-title">데이터 모델 설계</h3>
+            <p class="section-lead">
+              축제와 일자를 중심 축으로 두고, 무대 공연과 부스 운영이라는 두
+              가지 참여 양상을 5종 노드 클래스와 3종 관계 유형으로
+              모델링했습니다.
+            </p>
+
+            <div class="two-col-grid">
+              <div class="card">
+                <div class="card-header-row">
+                  <h4 class="card-heading">노드 클래스 5종</h4>
+                  <span class="mono text-crimson tabular-nums" style="font-size: 0.75rem">
+                    총 <span id="model-node-total">150</span>개 노드
+                  </span>
+                </div>
+                <ul class="class-list">
+                  <li class="class-item">
+                    <div class="class-item-left">
+                      <span class="swatch" style="background: #e11d48" aria-hidden="true"></span>
+                      <div>
+                        <div class="class-name">축제</div>
+                        <div class="class-desc">연도별 석탑대동제(KUdyssey, Kulimax)</div>
+                      </div>
+                    </div>
+                    <span class="class-count tabular-nums" data-class-count="축제">2개</span>
+                  </li>
+                  <li class="class-item">
+                    <div class="class-item-left">
+                      <span class="swatch" style="background: #f59e0b" aria-hidden="true"></span>
+                      <div>
+                        <div class="class-name">일자</div>
+                        <div class="class-desc">각 축제의 1일차~3일차 일정 단위</div>
+                      </div>
+                    </div>
+                    <span class="class-count tabular-nums" data-class-count="일자">6개</span>
+                  </li>
+                  <li class="class-item">
+                    <div class="class-item-left">
+                      <span class="swatch" style="background: #38bdf8" aria-hidden="true"></span>
+                      <div>
+                        <div class="class-name">연예인</div>
+                        <div class="class-desc">무대 공연 초청 아티스트 및 장르 정보</div>
+                      </div>
+                    </div>
+                    <span class="class-count tabular-nums" data-class-count="연예인">31개</span>
+                  </li>
+                  <li class="class-item">
+                    <div class="class-item-left">
+                      <span class="swatch" style="background: #34d399" aria-hidden="true"></span>
+                      <div>
+                        <div class="class-name">학생참여주체</div>
+                        <div class="class-desc">동아리·단과대·학생회 등 학생 공연 및 부스 주체</div>
+                      </div>
+                    </div>
+                    <span class="class-count tabular-nums" data-class-count="학생참여주체">84개</span>
+                  </li>
+                  <li class="class-item">
+                    <div class="class-item-left">
+                      <span class="swatch" style="background: #c084fc" aria-hidden="true"></span>
+                      <div>
+                        <div class="class-name">조직</div>
+                        <div class="class-desc">외부 기업·기관·브랜드 등 부스 운영 조직</div>
+                      </div>
+                    </div>
+                    <span class="class-count tabular-nums" data-class-count="조직">27개</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 1.5rem">
+                <div class="card">
+                  <div class="card-header-row">
+                    <h4 class="card-heading">관계 유형 3종</h4>
+                    <span class="mono text-crimson tabular-nums" style="font-size: 0.75rem">
+                      총 <span id="model-edge-total">242</span>개 관계
+                    </span>
+                  </div>
+                  <ul class="relation-list">
+                    <li class="relation-item">
+                      <div class="relation-top">
+                        <span class="relation-code">HAS_DAY</span>
+                        <span class="relation-meta tabular-nums">
+                          축제 → 일자 · <span data-rel-count="HAS_DAY">6</span>건
+                        </span>
+                      </div>
+                      <p class="relation-summary">
+                        연도별 축제가 포함하는 세부 행사 일자를 연결
+                      </p>
+                    </li>
+                    <li class="relation-item">
+                      <div class="relation-top">
+                        <span class="relation-code">PERFORMED_IN</span>
+                        <span class="relation-meta tabular-nums">
+                          연예인 또는 학생참여주체 → 일자 · <span data-rel-count="PERFORMED_IN">83</span>건
+                        </span>
+                      </div>
+                      <p class="relation-summary">
+                        해당 일자에 무대 공연을 진행한 참여 주체를 연결
+                      </p>
+                    </li>
+                    <li class="relation-item">
+                      <div class="relation-top">
+                        <span class="relation-code">OPERATED_BOOTH_IN</span>
+                        <span class="relation-meta tabular-nums">
+                          조직 또는 학생참여주체 → 일자 · <span data-rel-count="OPERATED_BOOTH_IN">153</span>건
+                        </span>
+                      </div>
+                      <p class="relation-summary">
+                        해당 일자에 부스를 운영한 조직 및 학생 주체를 연결
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="card card--beige">
+                  <h4 class="card-heading">주요 속성 (Properties)</h4>
+                  <dl class="attr-list">
+                    <div class="attr-row">
+                      <dt>year</dt>
+                      <dd>축제 개최 연도 (2025, 2026)</dd>
+                    </div>
+                    <div class="attr-row">
+                      <dt>genre</dt>
+                      <dd>초청 연예인의 음악·공연 장르 분류</dd>
+                    </div>
+                    <div class="attr-row">
+                      <dt>industry</dt>
+                      <dd>외부 참여 조직의 산업군 구분</dd>
+                    </div>
+                    <div class="attr-row">
+                      <dt>orgType</dt>
+                      <dd>학생참여주체의 소속 및 단체 유형</dd>
+                    </div>
+                    <div class="attr-row">
+                      <dt>participationType</dt>
+                      <dd>학생참여주체의 축제 참여 방식(공연/부스)</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4-5. 인터랙티브 지식그래프 -->
+          <div id="knowledge-graph" class="project-block section-anchor">
+            <p class="block-kicker">04 / INTERACTIVE KNOWLEDGE GRAPH</p>
+            <h3 class="block-title">인터랙티브 지식그래프 탐색</h3>
+            <p class="section-lead">
+              Neo4j에서 추출한 전체 원본 데이터를 브라우저 위에서 직접 탐색할
+              수 있습니다. 클래스·연도·일자 필터와 이름 검색을 조합하고, 노드를
+              클릭해 원본 속성과 연결 관계를 확인해 보세요.
+            </p>
+
+            <div class="kg-controls">
+              <div class="kg-controls-header">
+                <div>
+                  <div class="kg-status-line">
+                    <strong class="text-crimson">Neo4j Knowledge Graph Explorer</strong>
+                    <span aria-hidden="true">·</span>
+                    <span class="mono tabular-nums" style="color: var(--ink)" id="kg-total-summary">
+                      전체 노드 150개 · 관계 242개
+                    </span>
+                    <span aria-hidden="true">·</span>
+                    <span class="mono" id="kg-source-label">data/neo4j-data.json</span>
+                  </div>
+                  <p style="margin-top: 0.3rem; font-size: 0.75rem; color: var(--ink-muted)">
+                    필터를 적용하면 선택한 조건에 해당하는 참여 주체와 연결된
+                    <strong style="color: var(--ink)">축제·일자 문맥 노드</strong>가 함께 표시됩니다.
+                  </p>
+                </div>
+
+                <div class="kg-action-group">
+                  <input
+                    id="kg-file-input"
+                    type="file"
+                    accept=".json,application/json"
+                    class="sr-only"
+                    aria-label="Neo4j JSON 파일 업로드"
+                  />
+                  <button type="button" id="kg-upload-btn" class="btn-small">
+                    JSON 직접 불러오기
+                  </button>
+                  <button
+                    type="button"
+                    id="kg-clear-filters-btn"
+                    class="btn-small btn-small--crimson"
+                    hidden
+                  >
+                    필터 초기화
+                  </button>
+                </div>
+              </div>
+
+              <div id="kg-error-box" class="kg-alert" role="alert" hidden></div>
+
+              <div class="kg-filter-grid">
+                <div>
+                  <span class="filter-label">노드 클래스</span>
+                  <div class="filter-pills" id="class-filter-group" role="group" aria-label="노드 클래스 필터">
+                    <button type="button" class="filter-btn is-selected" data-class="전체" aria-pressed="true">전체</button>
+                    <button type="button" class="filter-btn" data-class="축제" aria-pressed="false">
+                      <span class="kg-legend-dot" style="background: #e11d48" aria-hidden="true"></span>축제
+                    </button>
+                    <button type="button" class="filter-btn" data-class="일자" aria-pressed="false">
+                      <span class="kg-legend-dot" style="background: #f59e0b" aria-hidden="true"></span>일자
+                    </button>
+                    <button type="button" class="filter-btn" data-class="연예인" aria-pressed="false">
+                      <span class="kg-legend-dot" style="background: #38bdf8" aria-hidden="true"></span>연예인
+                    </button>
+                    <button type="button" class="filter-btn" data-class="학생참여주체" aria-pressed="false">
+                      <span class="kg-legend-dot" style="background: #34d399" aria-hidden="true"></span>학생참여주체
+                    </button>
+                    <button type="button" class="filter-btn" data-class="조직" aria-pressed="false">
+                      <span class="kg-legend-dot" style="background: #c084fc" aria-hidden="true"></span>조직
+                    </button>
+                  </div>
+                </div>
+
+                <div class="year-day-grid">
+                  <div>
+                    <span class="filter-label">연도</span>
+                    <div class="filter-row-equal" id="year-filter-group" role="group" aria-label="연도 필터">
+                      <button type="button" class="filter-btn is-selected-dark" data-year="전체" aria-pressed="true">전체</button>
+                      <button type="button" class="filter-btn tabular-nums" data-year="2025" aria-pressed="false">2025</button>
+                      <button type="button" class="filter-btn tabular-nums" data-year="2026" aria-pressed="false">2026</button>
+                    </div>
+                  </div>
+                  <div>
+                    <span class="filter-label">일자</span>
+                    <div class="filter-row-equal" id="day-filter-group" role="group" aria-label="일자 필터">
+                      <button type="button" class="filter-btn is-selected-dark" data-day="전체" aria-pressed="true">전체</button>
+                      <button type="button" class="filter-btn tabular-nums" data-day="Day 1" aria-pressed="false">Day 1</button>
+                      <button type="button" class="filter-btn tabular-nums" data-day="Day 2" aria-pressed="false">Day 2</button>
+                      <button type="button" class="filter-btn tabular-nums" data-day="Day 3" aria-pressed="false">Day 3</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="graph-search-input" class="filter-label">이름 · 속성 검색</label>
+                  <div class="search-wrap">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <circle cx="11" cy="11" r="8" />
+                      <path d="M21 21l-4.35-4.35" />
+                    </svg>
+                    <input
+                      id="graph-search-input"
+                      type="search"
+                      class="search-input"
+                      placeholder="예: 잔나비, 힙합, KUdyssey..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="kg-workspace">
+              <div class="kg-canvas-wrap" id="kg-canvas-wrap">
+                <div id="kg-loading-state" class="kg-empty-state">
+                  지식그래프 데이터를 불러오는 중입니다...
+                </div>
+                <div id="kg-empty-state" class="kg-empty-state" hidden>
+                  <p>선택한 필터 조건에 일치하는 노드가 없습니다.</p>
+                  <button type="button" id="kg-empty-reset-btn" class="btn-small">
+                    전체 데이터 다시 보기
+                  </button>
+                </div>
+
+                <svg
+                  id="kg-svg"
+                  class="kg-svg"
+                  role="img"
+                  aria-label="2025–2026 고려대학교 석탑대동제 지식그래프 네트워크"
+                ></svg>
+
+                <div class="kg-hud-top-left">
+                  <div class="kg-count-badge tabular-nums" id="kg-visible-badge">
+                    표시: 노드 0/150개 · 관계 0/242개
+                  </div>
+                  <div class="kg-hover-card" id="kg-hover-card" hidden></div>
+                </div>
+
+                <div class="kg-hud-top-right">
+                  <button type="button" id="kg-zoom-in-btn" class="kg-zoom-btn" title="확대" aria-label="그래프 확대">
+                    확대
+                  </button>
+                  <button type="button" id="kg-zoom-out-btn" class="kg-zoom-btn" title="축소" aria-label="그래프 축소">
+                    축소
+                  </button>
+                  <span class="kg-zoom-pct tabular-nums" id="kg-zoom-pct">92%</span>
+                  <button type="button" id="kg-reset-btn" class="kg-zoom-btn" title="초기화" aria-label="그래프 위치 및 배율 초기화">
+                    초기화
+                  </button>
+                </div>
+
+                <div class="kg-legend">
+                  <div class="kg-legend-items" id="kg-legend-items"></div>
+                  <div class="mono" style="color: #a89b96; font-size: 0.625rem">
+                    노드 드래그 · 휠 확대/축소 · 클릭 시 속성 조회
+                  </div>
+                </div>
+              </div>
+
+              <aside class="kg-detail-panel" id="kg-detail-panel" aria-label="선택된 노드 상세 정보"></aside>
+            </div>
+          </div>
+
+          <!-- 4-6. 진행 과정 -->
+          <div class="project-block">
+            <div class="split-block">
+              <div>
+                <p class="block-kicker">05 / TIMELINE</p>
+                <h3 class="block-title">진행 과정</h3>
+                <p class="section-lead">
+                  모델링과 데이터 구축, Cypher 질의 검증을 마치고 현재 인문학적
+                  해석과 웹 시각화 고도화를 진행하고 있습니다.
+                </p>
+              </div>
+
+              <ol class="timeline-list">
+                <li class="timeline-item">
+                  <span class="timeline-marker timeline-marker--done" aria-hidden="true">✓</span>
+                  <div class="timeline-card">
+                    <div>
+                      <div>
+                        <span class="mono tabular-nums" style="font-size: 0.75rem; color: var(--ink-muted)">01</span>
+                        <strong style="margin-left: 0.4rem; font-size: 0.875rem">기획 및 데이터 모델 설계</strong>
+                      </div>
+                      <p style="margin-top: 0.25rem; font-size: 0.75rem; color: var(--ink-muted)">
+                        축제·일자·참여 주체 간 5종 노드와 3종 관계 스키마 확정
+                      </p>
+                    </div>
+                    <span class="status-badge status-badge--done">완료</span>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-marker timeline-marker--done" aria-hidden="true">✓</span>
+                  <div class="timeline-card">
+                    <div>
+                      <div>
+                        <span class="mono tabular-nums" style="font-size: 0.75rem; color: var(--ink-muted)">02</span>
+                        <strong style="margin-left: 0.4rem; font-size: 0.875rem">자료 수집 및 정리</strong>
+                      </div>
+                      <p style="margin-top: 0.25rem; font-size: 0.75rem; color: var(--ink-muted)">
+                        2025 KUdyssey·2026 Kulimax 공식 책자 및 공개 자료 취합
+                      </p>
+                    </div>
+                    <span class="status-badge status-badge--done">완료</span>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-marker timeline-marker--done" aria-hidden="true">✓</span>
+                  <div class="timeline-card">
+                    <div>
+                      <div>
+                        <span class="mono tabular-nums" style="font-size: 0.75rem; color: var(--ink-muted)">03</span>
+                        <strong style="margin-left: 0.4rem; font-size: 0.875rem">Neo4j 데이터 구축</strong>
+                      </div>
+                      <p style="margin-top: 0.25rem; font-size: 0.75rem; color: var(--ink-muted)">
+                        노드 150개·관계 242개 그래프 데이터베이스 적재 완료
+                      </p>
+                    </div>
+                    <span class="status-badge status-badge--done">완료</span>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-marker timeline-marker--done" aria-hidden="true">✓</span>
+                  <div class="timeline-card">
+                    <div>
+                      <div>
+                        <span class="mono tabular-nums" style="font-size: 0.75rem; color: var(--ink-muted)">04</span>
+                        <strong style="margin-left: 0.4rem; font-size: 0.875rem">Cypher 질의 작성·검증</strong>
+                      </div>
+                      <p style="margin-top: 0.25rem; font-size: 0.75rem; color: var(--ink-muted)">
+                        4개 핵심 연구 질문을 중심으로 Cypher 탐색 및 정합성 확인
+                      </p>
+                    </div>
+                    <span class="status-badge status-badge--done">완료</span>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-marker" aria-hidden="true">•</span>
+                  <div class="timeline-card">
+                    <div>
+                      <div>
+                        <span class="mono tabular-nums" style="font-size: 0.75rem; color: var(--ink-muted)">05</span>
+                        <strong style="margin-left: 0.4rem; font-size: 0.875rem">분석 및 인문학적 해석</strong>
+                      </div>
+                      <p style="margin-top: 0.25rem; font-size: 0.75rem; color: var(--ink-muted)">
+                        2개년 라인업·학생 참여·산업군 변화에 대한 인문학적 맥락화
+                      </p>
+                    </div>
+                    <span class="status-badge status-badge--progress">진행 중</span>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-marker" aria-hidden="true">•</span>
+                  <div class="timeline-card">
+                    <div>
+                      <div>
+                        <span class="mono tabular-nums" style="font-size: 0.75rem; color: var(--ink-muted)">06</span>
+                        <strong style="margin-left: 0.4rem; font-size: 0.875rem">웹 시각화</strong>
+                      </div>
+                      <p style="margin-top: 0.25rem; font-size: 0.75rem; color: var(--ink-muted)">
+                        정적 웹 환경에서 동작하는 인터랙티브 지식그래프 탐색기 구현
+                      </p>
+                    </div>
+                    <span class="status-badge status-badge--progress">진행 중</span>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-marker timeline-marker--planned" aria-hidden="true">○</span>
+                  <div class="timeline-card">
+                    <div>
+                      <div>
+                        <span class="mono tabular-nums" style="font-size: 0.75rem; color: var(--ink-muted)">07</span>
+                        <strong style="margin-left: 0.4rem; font-size: 0.875rem">최종 보고</strong>
+                      </div>
+                      <p style="margin-top: 0.25rem; font-size: 0.75rem; color: var(--ink-muted)">
+                        최종 연구 보고서 및 아카이브 결과 발표
+                      </p>
+                    </div>
+                    <span class="status-badge status-badge--planned">예정</span>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- 4-7. 나의 역할과 AI 활용·검증 -->
+          <div class="project-block">
+            <p class="block-kicker">06 / ROLE &amp; VERIFICATION</p>
+            <h3 class="block-title">나의 역할과 AI 활용·검증</h3>
+
+            <div class="two-col-grid">
+              <div class="card">
+                <h4 class="card-heading">나의 역할</h4>
+                <ul class="bullet-list">
+                  <li>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    <span>2025·2026년 연예인 라인업 조사 및 데이터 정리</span>
+                  </li>
+                  <li>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    <span>연예인 섭외 유형·장르 분류</span>
+                  </li>
+                  <li>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    <span>Cypher 질의 작성 및 Neo4j 결과 검증</span>
+                  </li>
+                  <li>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    <span>연예인 데이터를 중심으로 한 인문학적 결과 해석</span>
+                  </li>
+                  <li>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    <span>프로젝트 홈페이지 제작</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card card--beige">
+                <h4 class="card-heading">AI 활용과 검증</h4>
+                <p style="margin-top: 1rem; font-size: 0.875rem; line-height: 1.85">
+                  ChatGPT를 활용해 데이터 모델·Cypher 코드·웹페이지 구현을
+                  보조받고, 결과를 원자료 및 Neo4j 실행 결과와 대조하여
+                  검증했습니다. AI가 생성한 내용은 그대로 채택하지 않고,
+                  고유명사·분류·관계 방향과 질의 결과를 직접 확인했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4-8. 사용 도구 및 출처 -->
+          <div class="project-block">
+            <p class="block-kicker">07 / TOOLS &amp; SOURCES</p>
+            <h3 class="block-title">사용 도구 및 출처</h3>
+
+            <div class="two-col-grid">
+              <div class="card">
+                <h4 class="card-heading">사용 도구</h4>
+                <div class="tools-wrap">
+                  <span class="tool-chip">Neo4j</span>
+                  <span class="tool-chip">Cypher</span>
+                  <span class="tool-chip">Google Sheets</span>
+                  <span class="tool-chip">Google Docs</span>
+                  <span class="tool-chip">ChatGPT</span>
+                </div>
+              </div>
+
+              <div class="card">
+                <h4 class="card-heading">자료와 출처</h4>
+                <ul class="bullet-list" style="color: var(--ink-muted)">
+                  <li>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    <span>2025 KUdyssey 공식 책자</span>
+                  </li>
+                  <li>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    <span>2026 Kulimax 공식 책자</span>
+                  </li>
+                  <li>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    <span>석탑대동제 공식 SNS 및 참여 조직 공개 자료</span>
+                  </li>
+                  <li>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    <span>팀 Google Sheets</span>
+                  </li>
+                  <li>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    <span>Neo4j 지식그래프</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 5. 연락 -->
+    <footer id="contact" class="contact-section section-anchor">
+      <div class="container">
+        <div style="max-width: 42rem">
+          <p class="eyebrow" style="color: #f2b8c6">Contact</p>
+          <h2 class="section-title" style="color: var(--ivory)">연락</h2>
+          <p class="section-lead" style="color: #e9d7dc">
+            디지털인문학 연구, 문화 데이터 분석 및 프로젝트 협업과 관련한 문의는
+            이메일로 편하게 연락 주세요.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <a href="mailto:sseongmin30@gmail.com" class="contact-card">
+            <div>
+              <div class="contact-icon contact-icon--email" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M22 7l-10 7L2 7" />
+                </svg>
+              </div>
+              <h3 class="serif" style="margin-top: 1rem; font-size: 1.125rem; font-weight: 700">
+                이메일
+              </h3>
+              <p class="mono" style="margin-top: 0.35rem; font-size: 0.875rem; color: #f2b8c6">
+                sseongmin30@gmail.com
+              </p>
+            </div>
+            <span style="margin-top: 1.5rem; font-size: 0.75rem; color: #e9d7dc">
+              메일 앱으로 바로 보내기 ↗
+            </span>
+          </a>
+
+          <div class="contact-card">
+            <div>
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </div>
+              <h3 class="serif" style="margin-top: 1rem; font-size: 1.125rem; font-weight: 700">
+                LinkedIn
+              </h3>
+              <p style="margin-top: 0.35rem; font-size: 0.875rem; color: rgba(233, 215, 220, 0.82)">
+                프로필 주소 준비 중
+              </p>
+            </div>
+            <span class="mono" style="margin-top: 1.5rem; font-size: 0.75rem; color: rgba(233, 215, 220, 0.55)">
+              Placeholder · 추후 업데이트 예정
+            </span>
+          </div>
+
+          <div class="contact-card">
+            <div>
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <h3 class="serif" style="margin-top: 1rem; font-size: 1.125rem; font-weight: 700">
+                GitHub
+              </h3>
+              <p style="margin-top: 0.35rem; font-size: 0.875rem; color: rgba(233, 215, 220, 0.82)">
+                저장소 주소 준비 중
+              </p>
+            </div>
+            <span class="mono" style="margin-top: 1.5rem; font-size: 0.75rem; color: rgba(233, 215, 220, 0.55)">
+              Placeholder · 추후 업데이트 예정
+            </span>
+          </div>
+        </div>
+
+        <div class="footer-bar">
+          <span>© 2026 심성민 (Sungmin Sim) · 고려대학교 노어노문학과</span>
+          <span class="mono" style="font-size: 0.6875rem">
+            2025–2026 고려대학교 석탑대동제 지식그래프 분석 포트폴리오
+          </span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
-
