@@ -1,11 +1,27 @@
-<div align="center">
+# 심성민 | 디지털인문학 포트폴리오 & 석탑대동제 지식그래프
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+2025–2026 고려대학교 석탑대동제(KUdyssey · Kulimax) 지식그래프 분석 연구를 중심으로 한 디지털인문학 포트폴리오 웹페이지입니다.  
+백엔드 서버, 데이터베이스 연결, API 키 없이 **정적 웹 환경(GitHub Pages 등)** 에서 동작하도록 구성되어 있습니다.
 
-  <h1>Built with AI Studio</h2>
+## 주요 기능
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **자기소개 및 연구 소개**: 고려대학교 노어노문학과 심성민의 소개, 연구 배경, 4가지 핵심 질문, 5종 노드·3종 관계 데이터 모델, 7단계 진행 과정, 역할 및 AI 활용·검증 내용 수록
+- **인터랙티브 Neo4j 지식그래프 (D3.js)**:
+  - `./data/neo4j-data.json` 자동 로드 (노드 150개, 관계 242개, 노드 클래스 5종) 및 수동 JSON 파일 업로드 지원
+  - 클래스(`축제`, `일자`, `연예인`, `학생참여주체`, `조직`), 연도(`2025`, `2026`), 일자(`Day 1`~`Day 3`), 이름·속성 검색 필터 및 문맥 노드(축제·일자) 자동 포함
+  - 노드 드래그, 휠 확대·축소, 확대/축소/초기화 버튼, 호버 시 인접 관계 강조, 클릭 시 오른쪽 상세 패널에서 모든 속성 및 연결 관계 확인
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## 로컬 실행 및 정적 빌드
 
-</div>
+```bash
+npm install
+npm run dev
+```
+
+GitHub Pages 배포용 정적 번들 생성 (`vite.config.ts`에 `base: './'` 적용):
+
+```bash
+npm run build
+```
+
+생성된 `dist/` 디렉터리를 그대로 GitHub Pages(또는 하위 경로 `/repo-name/`)에 배포할 수 있습니다.
